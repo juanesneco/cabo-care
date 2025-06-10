@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cabo Care - Administración de HOAs</title>
+    <meta name="description" content="Cabo Care: Administración moderna y transparente para comunidades residenciales en Los Cabos." />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="static-styles.css" />
+    <style>
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll {
+        display: flex;
+        animation: scroll 30s linear infinite;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      /* Custom hover shadow for service cards */
+      .service-card:hover {
+        box-shadow: 0 8px 32px 0 #07739555 !important;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen h-full font-sans text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav class="container mx-auto flex justify-between items-center px-6 py-4 relative">
+        <div class="flex items-center space-x-3">
+          <img src="Images/full_logo.png" alt="Cabo Care Logo" class="h-12 w-auto" />
+        </div>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="#Servicios" class="text-[#077395] hover:text-orange-200 transition duration-300">Servicios</a></li>
+          <li><a href="#HOAsQueConfian" class="text-[#077395] hover:text-orange-200 transition duration-300">HOAs</a></li>
+          <li><a href="#SobreNosotros" class="text-[#077395] hover:text-orange-200 transition duration-300">Sobre Nosotros</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Hero Section -->
+    <section id="Inicio"
+      class="relative h-screen flex items-center justify-center bg-cover bg-center"
+      style="background-image: url('Images/beachline.jpeg');"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative z-10 text-center text-white flex flex-col items-center w-full px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+          Tu comunidad en buenas manos: transparencia, armonía y eficiencia.
+        </h2>
+        <p class="text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl mx-auto">
+          En Cabo Care, transformamos la gestión de asociaciones de propietarios con compromiso humano y soluciones inteligentes.
+        </p>
+        <a href="#Contacto"
+          class="flex items-center justify-center gap-2 px-8 py-4 rounded-full transition-colors bg-white hover:bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#077395]"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          <span style="color: #077395 !important;" class="font-semibold text-lg">Contáctanos</span>
+        </a>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section id="Servicios" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md hover:-translate-y-1 hover:translate-x-1 transition-transform duration-300 cursor-default service-card relative" style="box-shadow: 0 4px 24px 0 #07739522;">
+            <button class="absolute top-4 right-4 text-[#077395] hover:bg-gray-100 rounded-full p-2 focus:outline-none" onclick="openServiceModal('finanzas')" title="Ver más detalles">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            </button>
+            <div class="text-[#077395] mb-4"> <!-- FinanceIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+            <h3 class="text-xl font-semibold mb-2">Finanzas</h3>
+            <p class="text-gray-600">Gestión transparente de presupuestos y gastos comunes con reportes mensuales detallados, control de ingresos y egresos, y sistema de cobranza automatizado.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:-translate-y-1 hover:translate-x-1 transition-transform duration-300 cursor-default service-card relative" style="box-shadow: 0 4px 24px 0 #07739522;">
+            <button class="absolute top-4 right-4 text-[#077395] hover:bg-gray-100 rounded-full p-2 focus:outline-none" onclick="openServiceModal('operaciones')" title="Ver más detalles">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            </button>
+            <div class="text-[#077395] mb-4"> <!-- OperationsIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+            <h3 class="text-xl font-semibold mb-2">Coordinación Operativa</h3>
+            <p class="text-gray-600">Operación eficiente del día a día de tu comunidad con supervisión de proveedores, manejo de contratos y monitoreo de servicios esenciales.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:-translate-y-1 hover:translate-x-1 transition-transform duration-300 cursor-default service-card relative" style="box-shadow: 0 4px 24px 0 #07739522;">
+            <button class="absolute top-4 right-4 text-[#077395] hover:bg-gray-100 rounded-full p-2 focus:outline-none" onclick="openServiceModal('mantenimiento')" title="Ver más detalles">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            </button>
+            <div class="text-[#077395] mb-4"> <!-- MaintenanceIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+            <h3 class="text-xl font-semibold mb-2">Inspecciones y Mantenimiento</h3>
+            <p class="text-gray-600">Prevención y control para mantener la calidad de tu comunidad con visitas programadas de inspección, registro de daños y mejoras, y agenda de mantenimiento preventivo.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:-translate-y-1 hover:translate-x-1 transition-transform duration-300 cursor-default service-card relative" style="box-shadow: 0 4px 24px 0 #07739522;">
+            <button class="absolute top-4 right-4 text-[#077395] hover:bg-gray-100 rounded-full p-2 focus:outline-none" onclick="openServiceModal('comunicacion')" title="Ver más detalles">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            </button>
+            <div class="text-[#077395] mb-4"> <!-- CommunicationIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+            <h3 class="text-xl font-semibold mb-2">Comunicación</h3>
+            <p class="text-gray-600">Canales claros y accesibles para todos los propietarios con notificaciones en tiempo real, plataforma integrada de comunicación y reuniones virtuales y presenciales.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:-translate-y-1 hover:translate-x-1 transition-transform duration-300 cursor-default service-card relative" style="box-shadow: 0 4px 24px 0 #07739522;">
+            <button class="absolute top-4 right-4 text-[#077395] hover:bg-gray-100 rounded-full p-2 focus:outline-none" onclick="openServiceModal('armonia')" title="Ver más detalles">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            </button>
+            <div class="text-[#077395] mb-4"> <!-- HarmonyIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg></div>
+            <h3 class="text-xl font-semibold mb-2">Armonía Comunitaria</h3>
+            <p class="text-gray-600">Facilitamos el entendimiento entre vecinos y administración mediante mediación de conflictos, eventos comunitarios y encuestas de satisfacción.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:-translate-y-1 hover:translate-x-1 transition-transform duration-300 cursor-default service-card relative" style="box-shadow: 0 4px 24px 0 #07739522;">
+            <button class="absolute top-4 right-4 text-[#077395] hover:bg-gray-100 rounded-full p-2 focus:outline-none" onclick="openServiceModal('legal')" title="Ver más detalles">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+            </button>
+            <div class="text-[#077395] mb-4"> <!-- LegalIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
+            <h3 class="text-xl font-semibold mb-2">Constitución de Asociación Civil</h3>
+            <p class="text-gray-600">Soporte completo en el proceso legal y operativo inicial con redacción de estatutos, trámites legales y capacitación inicial.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Our App Section -->
+    <section id="NuestraApp" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestra Aplicación</h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-1/2">
+            <img src="Images/preview.png" alt="App Preview" class="h-auto mx-auto" style="width:62.5%; box-shadow:none; border-radius:0;" />
+          </div>
+          <div class="w-full md:w-1/2">
+            <p class="text-lg text-gray-700 mb-4">Como propietario, tendrás acceso directo a toda la información relevante de tu propiedad:</p>
+            <ul class="space-y-4">
+              <li class="flex items-start"><span class="inline-block mr-3 text-[#077395]"> <!-- HomeIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <p>Consulta fácilmente los datos de tu lote o unidad.</p></li>
+              <li class="flex items-start"><span class="inline-block mr-3 text-[#077395]"> <!-- DollarIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span> <p>Revisa tus cargos pendientes, historial de pagos y saldos actualizados.</p></li>
+              <li class="flex items-start"><span class="inline-block mr-3 text-[#077395]"> <!-- ClockIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span> <p>Recibe noticias importantes y mensajes oficiales de la HOA en tiempo real.</p></li>
+              <li class="flex items-start"><span class="inline-block mr-3 text-[#077395]"> <!-- MobileIcon --> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg></span> <p>Todo esto desde tu dispositivo móvil o computadora, disponible las 24 horas.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- HOAs That Trust Us -->
+    <section id="HOAsQueConfian" class="py-20 bg-gray-50 overflow-hidden">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">¿Quiénes confían en nosotros?</h2>
+        <div class="overflow-x-auto pb-4 scrollbar-hide">
+          <div class="relative w-full">
+            <div class="flex animate-scroll gap-8 w-max">
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/bahia_1.png" alt="Bahía del Tezal 1" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Bahía del Tezal 1</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/eonia_12.png" alt="Eonia 12" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Eonia 12</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/isla_del_sol.png" alt="Isla del Sol" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Isla del Sol</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/pc.png" alt="Privadas Coromuel" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Privadas Coromuel</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/lux_3.png" alt="Luxótica 3" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Luxótica 3</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/RV.png" alt="Roca Vista" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Roca Vista</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/torre_maria.png" alt="Torre María" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Torre María</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/torre_catalina.png" alt="Torre Catalina" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Torre Catalina</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/vr_51.png" alt="VR 51" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">VR 51</div>
+              </div>
+              <!-- Duplicate for infinite scroll effect -->
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/bahia_1.png" alt="Bahía del Tezal 1" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Bahía del Tezal 1</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/eonia_12.png" alt="Eonia 12" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Eonia 12</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/isla_del_sol.png" alt="Isla del Sol" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Isla del Sol</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/pc.png" alt="Privadas Coromuel" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Privadas Coromuel</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/lux_3.png" alt="Luxótica 3" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Luxótica 3</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/RV.png" alt="Roca Vista" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Roca Vista</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/torre_maria.png" alt="Torre María" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Torre María</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/torre_catalina.png" alt="Torre Catalina" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">Torre Catalina</div>
+              </div>
+              <div class="w-64 bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col overflow-hidden">
+                <img src="Images/HOAs/vr_51.png" alt="VR 51" class="w-full aspect-square object-cover" />
+                <div class="bg-gray-100 text-gray-700 text-center py-4 text-lg font-semibold">VR 51</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us -->
+    <section id="SobreNosotros" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Sobre Nosotros</h2>
+        <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
+          <div class="md:w-1/3">
+            <img src="Images/ivonne-gutierrez.jpg" alt="Founder Ivonne Gutiérrez" class="rounded-full shadow-md w-40 h-40 object-cover mx-auto" />
+          </div>
+          <div class="md:w-2/3 text-center md:text-left">
+            <p class="text-lg text-gray-700 mb-6">Fundada por Ivonne Gutiérrez, Cabo Care nació con el objetivo de ofrecer una administración moderna, humana y responsable para comunidades residenciales.</p>
+            <p class="text-lg text-gray-700 mb-6">Nuestra misión es facilitar la vida de los propietarios mediante procesos transparentes, comunicación clara y soluciones tecnológicas innovadoras.</p>
+            <p class="text-lg text-gray-700">Creemos en la armonía comunitaria, la eficiencia operativa y la relación cercana con cada cliente. Porque tu comunidad merece estar en buenas manos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Form Section -->
+    <section id="Contacto" class="py-20 bg-[#077395] text-white" style="background-color:#077395;">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Contáctanos</h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          <form class="space-y-4" action="#" method="POST">
+            <input name="name" type="text" placeholder="Nombre" class="w-full p-3 border rounded-md text-gray-900" required />
+            <input name="email" type="email" placeholder="Correo electrónico" class="w-full p-3 border rounded-md text-gray-900" required />
+            <input name="phone" type="tel" placeholder="Teléfono" class="w-full p-3 border rounded-md text-gray-900" />
+            <textarea name="message" placeholder="Mensaje" rows="5" class="w-full p-3 border rounded-md text-gray-900" required></textarea>
+            <button type="submit" class="bg-white font-bold border border-[#077395] px-6 py-3 rounded-full hover:bg-gray-100 transition flex items-center justify-center gap-2" style="color:#077395;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#077395" stroke-width="2" class="inline-block align-middle"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
+              <span>Hablemos de tu comunidad</span>
+            </button>
+          </form>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-semibold text-lg mb-2">Opciones rápidas</h3>
+              <div class="flex items-center space-x-2 text-green-300">
+                <!-- WhatsAppIcon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>+52 123 456 7890</span>
+              </div>
+              <div class="flex items-center space-x-2 text-blue-200 mt-2">
+                <!-- MailIcon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>contacto@cabocare.com</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg mb-2">Ubicación</h3>
+              <p class="text-white">Los Cabos, Baja California Sur, México</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-[#077395] text-white py-8 px-6" style="background-color:#077395;">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <p>&copy; 2025 Cabo Care. Todos los derechos reservados.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#Servicios" class="text-white hover:text-orange-200 transition duration-300">Servicios</a>
+          <a href="#HOAsQueConfian" class="text-white hover:text-orange-200 transition duration-300">HOAs</a>
+          <a href="#SobreNosotros" class="text-white hover:text-orange-200 transition duration-300">Sobre Nosotros</a>
+        </div>
+      </div>
+    </footer>
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg max-w-lg w-full p-8 relative">
+        <button onclick="closeServiceModal()" class="absolute top-4 right-4 text-gray-400 hover:text-[#077395] text-2xl font-bold focus:outline-none">&times;</button>
+        <div id="service-modal-content"></div>
+      </div>
+    </div>
+    <script>
+    const serviceDetails = {
+      finanzas: `
+        <h3 class='text-2xl font-bold text-[#077395] flex items-center gap-2 mb-4'>
+          <span class="inline-block align-middle">Finanzas</span> <span class="inline-block align-middle"> <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"></polyline><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"></line></svg></span>
+        </h3>
+        <ul class='list-disc pl-6 space-y-2 text-gray-800'>
+          <li><b>Revisión y Registro Diario:</b> Monitoreo constante de movimientos bancarios.</li>
+          <li><b>Facturación:</b> Elaboración de facturas mensuales.</li>
+          <li><b>Presupuestos:</b> Elaboración y control del presupuesto anual.</li>
+          <li><b>Pago Puntual:</b> Cumplimiento de obligaciones mensuales y fiscales.</li>
+          <li><b>Coordinación con Despacho Contable:</b> Facilitamos la entrega de documentación y comprobantes para una contabilidad precisa.</li>
+        </ul>
+      `,
+      operaciones: `
+        <h3 class='text-2xl font-bold text-[#077395] flex items-center gap-2 mb-4'>
+          <span class="inline-block align-middle">Coordinación Operativa</span> <span class="inline-block align-middle"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></span>
+        </h3>
+        <ul class='list-disc pl-6 space-y-2 text-gray-800'>
+          <li><b>Supervisión de Personal y Proveedores:</b> Asegurar la eficiencia y compromiso del personal y cumplimiento de proveedores externos.</li>
+          <li><b>Mantenimiento Preventivo y Correctivo:</b> Prolongación de la vida útil de las instalaciones mediante mantenimiento regular.</li>
+          <li><b>Inspecciones Semanales:</b> Realizamos recorridos regulares para asegurar el mantenimiento óptimo de la propiedad.</li>
+          <li><b>Gestión de Emergencias:</b> Respuesta rápida a incidencias y necesidades operativas.</li>
+        </ul>
+      `,
+      mantenimiento: `
+        <h3 class='text-2xl font-bold text-[#077395] flex items-center gap-2 mb-4'>
+          <span class="inline-block align-middle">Inspecciones y Mantenimiento</span> <span class="inline-block align-middle"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\"></path></svg></span>
+        </h3>
+        <ul class='list-disc pl-6 space-y-2 text-gray-800'>
+          <li><b>Inspecciones Programadas:</b> Visitas periódicas para detectar y prevenir daños.</li>
+          <li><b>Registro de Daños y Mejoras:</b> Documentación y seguimiento de incidencias.</li>
+          <li><b>Agenda de Mantenimiento:</b> Planificación de mantenimientos preventivos y correctivos.</li>
+        </ul>
+      `,
+      comunicacion: `
+        <h3 class='text-2xl font-bold text-[#077395] flex items-center gap-2 mb-4'>
+          <span class="inline-block align-middle">Comunicación</span> <span class="inline-block align-middle"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg></span>
+        </h3>
+        <ul class='list-disc pl-6 space-y-2 text-gray-800'>
+          <li><b>Comunicación Directa:</b> Contacto constante con propietarios mediante medios digitales (WhatsApp y Correo).</li>
+          <li><b>Informes y Estados de Cuenta:</b> Actualización mensual sobre la gestión y las finanzas del condominio y HOA.</li>
+          <li><b>Asambleas de Propietarios:</b> Organización y convocatoria de reuniones anuales.</li>
+          <li><b>Envío de Comprobantes de Pago:</b> Distribuimos recibos digitales a los propietarios.</li>
+        </ul>
+      `,
+      armonia: `
+        <h3 class='text-2xl font-bold text-[#077395] flex items-center gap-2 mb-4'>
+          <span class="inline-block align-middle">Armonía Comunitaria</span> <span class="inline-block align-middle"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg></span>
+        </h3>
+        <ul class='list-disc pl-6 space-y-2 text-gray-800'>
+          <li><b>Eficiencia y Justicia Operativa:</b> Asegura una gestión equitativa que favorece el bienestar común sobre intereses individuales.</li>
+          <li><b>Cultivo del Respeto y la Justicia:</b> Fomenta un entorno donde el respeto y las soluciones justas prevalecen para el beneficio de toda la comunidad.</li>
+          <li><b>Innovación y Armonía Comunitaria:</b> Desarrolla proyectos que mejoran la convivencia y promueven un crecimiento sostenible alineado con el bien común.</li>
+        </ul>
+      `,
+      legal: `
+        <h3 class='text-2xl font-bold text-[#077395] flex items-center gap-2 mb-4'>
+          <span class="inline-block align-middle">Constitución de Asociación Civil</span> <span class="inline-block align-middle"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"></rect><line x1=\"3\" y1=\"9\" x2=\"21\" y2=\"9\"></line><line x1=\"9\" y1=\"21\" x2=\"9\" y2=\"9\"></line></svg></span>
+        </h3>
+        <div class='bg-[#077395] text-white p-4 rounded-lg mb-4'>
+          Este servicio especializado cubre la coordinación de la formalización legal de la asociación civil y la gestión de trámites con entidades legales y gubernamentales. Cabo Care facilitará estos procesos asegurando que todo se maneje adecuadamente.
+        </div>
+        <ul class='list-disc pl-6 space-y-2 text-gray-800'>
+          <li><b>Redacción de estatutos:</b> Elaboración de documentos legales fundacionales.</li>
+          <li><b>Trámites legales:</b> Gestión ante entidades legales y gubernamentales.</li>
+          <li><b>Capacitación inicial:</b> Orientación sobre obligaciones y funcionamiento de la asociación civil.</li>
+        </ul>
+      `
+    };
+    function openServiceModal(key) {
+      document.getElementById('service-modal-content').innerHTML = serviceDetails[key];
+      document.getElementById('service-modal').classList.remove('hidden');
+    }
+    function closeServiceModal() {
+      document.getElementById('service-modal').classList.add('hidden');
+    }
+    document.getElementById('service-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeServiceModal();
+    });
+    </script>
+  </body>
+</html> 
